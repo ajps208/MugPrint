@@ -1,8 +1,14 @@
 import React from "react";
+import PrintForm from "./PrintForm";
+import Hero from "./Hero";
+import Header from "./Header";
+import Footer from "./Footer";
 
 function Main() {
   return (
     <>
+    <Header/>
+    <Hero/>
       <main id="main">
         {/* <!-- ======= About Section ======= --> */}
         <section id="about" class="about">
@@ -270,116 +276,9 @@ function Main() {
         {/* <!-- ======= Events Section ======= --> */}
         {/* <!-- End Events Section --> */}
 
-        {/* <!-- ======= Book A Table Section ======= --> */}
-        <section id="book-a-table" class="book-a-table">
-          <div class="container" data-aos="fade-up">
-            <div class="section-title">
-              <h2>Print a Mug</h2>
-              <p>Let's Print Your Favorite Mug</p>
-            </div>
-
-            <form
-              action="forms/book-a-table.php"
-              method="post"
-              role="form"
-              class="php-email-form"
-              data-aos="fade-up"
-              data-aos-delay="100"
-              enctype="multipart/form-data"
-            >
-              <div class="row">
-                <div class="col-lg-4 col-md-6 form-group">
-                  <input
-                    type="text"
-                    name="name"
-                    class="form-control"
-                    id="name"
-                    placeholder="Your Name"
-                    data-rule="minlen:4"
-                    data-msg="Please enter at least 4 chars"
-                  />
-                  <div class="validate"></div>
-                </div>
-                <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0">
-                  <input
-                    type="text"
-                    class="form-control"
-                    name="whatsapp"
-                    id="whatsapp"
-                    placeholder="Your WhatsApp Number"
-                    data-rule="minlen:10"
-                    data-msg="Please enter a valid WhatsApp number"
-                  />
-                  <div class="validate"></div>
-                </div>
-                <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0">
-                  <input
-                    type="email"
-                    class="form-control"
-                    name="email"
-                    id="email"
-                    placeholder="Your Email"
-                    data-rule="email"
-                    data-msg="Please enter a valid email"
-                  />
-                  <div class="validate"></div>
-                </div>
-                <div class="d-flex flex-column col-lg-4 col-md-6 form-group mt-3">
-                  <input
-                    type="file"
-                    class="form-control"
-                    name="image"
-                    id="image"
-                    accept="image/*"
-                    style={{ display: "none" }}
-                    onchange="previewImage(this)"
-                    data-msg="Please upload an image"
-                  />
-                  <label for="image" class="upload-label">
-                    Click to Upload Image
-                  </label>
-                  <img
-                    width="250px"
-                    id="imagePreview"
-                    class="img-preview"
-                    src="..."
-                    alt="Image Preview"
-                  />
-                </div>
-                <div class="col-lg-6 form-group mt-3">
-                  <label for="bgcolor">Choose Background Color:</label>
-                  <input
-                    type="color"
-                    class="form-control"
-                    name="bgcolor"
-                    id="bgcolor"
-                  />
-                  <div class="validate"></div>
-                </div>
-              </div>
-              <div class="form-group mt-3">
-                <textarea
-                  class="form-control"
-                  name="message"
-                  rows="5"
-                  placeholder="Message"
-                ></textarea>
-                <div class="validate"></div>
-              </div>
-              <div class="mb-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">
-                  Your mug printing request was sent. We will get back to you
-                  soon. Thank you!
-                </div>
-              </div>
-              <div class="text-center">
-                <button type="submit">Print a Mug</button>
-              </div>
-            </form>
-          </div>
-        </section>
+        {/* <!-- ======= print mug Section ======= --> */}
+        <PrintForm/>
+        
 
         {/* <!-- End Book A Table Section --> */}
 
@@ -526,6 +425,8 @@ function Main() {
         </section>
         {/* <!-- End Gallery Section --> */}
       </main>
+      <Footer/>
+
     </>
   );
 }

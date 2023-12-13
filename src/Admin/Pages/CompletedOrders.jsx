@@ -5,44 +5,44 @@ import { useNavigate } from "react-router-dom";
 import { adminorderStatus } from "../../Context/OrderContext";
 import { BASE_URL } from "../../Services/baseUrl";
 
-function PendingOrderView() {
-  const navigate = useNavigate();
-  const [orders, setOrders] = useState([]);
-  const { pendingorderId, setPendingOrderId } = useContext(adminorderStatus);
-
-  const getAllOrders = async () => {
-    try {
-      const result = await getAllOrderAPI();
-
-      if (result.status === 200) {
-        const pendingOrders = result.data.filter(
-          (order) => order.orderstatus === false
-        );
-        setOrders(pendingOrders);
-        console.log(pendingOrders);
-      } else {
-        console.log(result);
+function CompletedOrders() {
+    const navigate = useNavigate();
+    const [orders, setOrders] = useState([]);
+    const { pendingorderId, setPendingOrderId } = useContext(adminorderStatus);
+  
+    const getAllOrders = async () => {
+      try {
+        const result = await getAllOrderAPI();
+  
+        if (result.status === 200) {
+          const pendingOrders = result.data.filter(
+            (order) => order.orderstatus === true
+          );
+          setOrders(pendingOrders);
+          console.log(pendingOrders);
+        } else {
+          console.log(result);
+        }
+      } catch (error) {
+        console.error("Error fetching orders:", error);
       }
-    } catch (error) {
-      console.error("Error fetching orders:", error);
-    }
-  };
-
-  const gotoOrderview = (id) => {
-    setPendingOrderId(id);
-    sessionStorage.setItem("adminorderId", id);
-    navigate(`/pendingview`);
-  };
-
-  useEffect(() => {
-    getAllOrders();
-  }, []);
+    };
+  
+    const gotoOrderview = (id) => {
+      setPendingOrderId(id);
+      sessionStorage.setItem("adminorderId", id);
+      navigate(`/pendingview`);
+    };
+  
+    useEffect(() => {
+      getAllOrders();
+    }, []);
   return (
     <>
-      <div className="mb-5">
+        <div className="mb-5">
         <Container>
           <h2 className="text-start text-success mt-5 mb-3">
-            Pending Orders <i className="fa-solid fa-clipboard-check"></i>
+            Completed Orders <i className="fa-solid fa-clipboard-check"></i>
           </h2>
 
           {orders.length > 0
@@ -96,7 +96,7 @@ function PendingOrderView() {
         </Container>
       </div>
     </>
-  );
+  )
 }
 
-export default PendingOrderView;
+export default CompletedOrders

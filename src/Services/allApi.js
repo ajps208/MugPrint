@@ -66,3 +66,8 @@ export const updateOutForDeliveryAPI=async(reqBody)=>{
     return await commonAPI("PATCH",`${BASE_URL}/user/outfordelivery`,reqBody,"")
 
 }
+// upadte order by delivered
+export const deliveredAPI=async(reqBody)=>{
+    return await commonAPI("PATCH",`${BASE_URL}/user/delivered`,reqBody,"")
+
+}

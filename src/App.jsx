@@ -9,6 +9,7 @@ import AdminLogin from "./Admin/AdminLogin";
 import AdminDasboard from "./Admin/Pages/AdminDasboard";
 import PendingOrderView from "./Admin/Pages/PendingOrderView";
 import PendingView from "./Admin/Pages/PendingView";
+import CompletedOrders from "./Admin/Pages/CompletedOrders";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       <Route path="/admindashboard" element={<AdminDasboard />}></Route>
       <Route path="/pending" element={<PendingOrderView />}></Route>
       <Route path="/pendingview" element={<PendingView />}></Route>
+      <Route path="/completed" element={<CompletedOrders />}></Route>
 
 
       {/* --------------user------------- */}

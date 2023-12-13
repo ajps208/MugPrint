@@ -16,7 +16,10 @@ function Sidebar() {
   return (
     <>
       <div class="sidebar">
-       <div className="w-100 p-3"> <img src="" className="img-fluid w-75" alt="MUGHUB" /></div>
+       <div className="w-100 p-3">
+        <h2>MUGHUB</h2>
+         {/* <img src="" className="img-fluid w-75" alt="MUGHUB" /> */}
+         </div>
        <a class="active fw-bolder"  >
           ADMIN DASHBOARD
         </a>
@@ -24,7 +27,7 @@ function Sidebar() {
           Home
         </a>
         <a href="/pending">Pending Orders</a>
-        <a href="/orderview">Completed Orders</a>
+        <a href="/completed">Completed Orders</a>
         <a onClick={handleLogout}>Logout</a>
       </div>
     </>

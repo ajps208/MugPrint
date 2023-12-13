@@ -3,11 +3,10 @@ import { Container, Row, Col } from "react-bootstrap";
 
 import { Link } from "react-router-dom";
 import { adminorderStatus } from "../../Context/OrderContext";
-import { getOneOrderAPI, updateMugPrintAPI } from "../../Services/allApi";
+import { deliveredAPI, getOneOrderAPI, updateMugPrintAPI, updateOutForDeliveryAPI } from "../../Services/allApi";
 import { BASE_URL } from "../../Services/baseUrl";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { error } from "console";
 
 function OrderView() {
   const { pendingorderId, setPendingOrderId } = useContext(adminorderStatus);
@@ -16,6 +15,7 @@ function OrderView() {
   const [orderdate, setOrderdate] = useState();
   const[mugPrint,setMugPrint]=useState()
   const[outForDelivery,setoutForDelivery]=useState()
+  const[delivered,setDelivered]=useState()
   console.log(mugPrint);
 //   get all pending orders
   const fetchOrder = async () => {
@@ -36,7 +36,7 @@ function OrderView() {
     if(result.status===200){
       toast.success("Mugprinted date updated")
     }else{
-      console.log(error);
+      console.log(result);
     }
 
   }
@@ -45,15 +45,28 @@ function OrderView() {
     const reqBody={
         orderid:id,outForDelivery:outForDelivery
     }
-    const result=await updateMugPrintAPI(reqBody)
+    const result=await updateOutForDeliveryAPI(reqBody)
     if(result.status===200){
       toast.success("out for delivery date updated")
     }else{
-      console.log(error);
+      console.log(result);
     }
 
   }
+ console.log("delivered",delivered);
+  // update deliverd
+  const updateDelivered=async(id)=>{
+    const reqBody={
+        orderid:id,delivered:delivered
+    }
+    const result=await deliveredAPI(reqBody)
+    if(result.status===200){
+      toast.success("delivered date updated")
+    }else{
+      console.log(result);
+    }
 
+  }
 
   useEffect(() => {
     const savedOrderId = sessionStorage.getItem("adminorderId");
@@ -155,17 +168,23 @@ function OrderView() {
                 ? order.Delivered.date || "Not available"
                 : "Not available"}
             </p>
+            <p>
+              Payment Id:{" "}
+              {order.paymentId && order.paymentId
+                ? order.paymentId || "Not available"
+                : "Not available"}
+            </p>
           </Col>
         </Row>
         <Row className="bg-light text-dark rounded shadow-lg mt-3 d-flex justify-content-center align-items-center">
-          <Col xs={2} sm={2} md={2} lg={2}>
+          <Col xs={3} sm={3} md={3} lg={3}>
             <h5>Order status</h5>
           </Col>
           <Col
-            xs={10}
-            sm={10}
-            md={10}
-            lg={10}
+            xs={9}
+            sm={9}
+            md={9}
+            lg={9}
             className="column d-flex flex-row"
           >
             <div className="orderstatus d-flex flex-column justify-content-center mt-3 ms-3">
@@ -184,7 +203,7 @@ function OrderView() {
                 </button>
               </div>
             </div>
-            <div className="orderstatus d-flex flex-column justify-content-center mt-3 ms-3">
+            <div className="orderstatus d-flex flex-column justify-content-center mt-3 ms-5">
               <label style={{ fontSize: "18px" }}>Out for Delivery</label>
               <div className="orderdisplay d-flex  align-items-center">
                 <input
@@ -201,41 +220,24 @@ function OrderView() {
                 </button>
               </div>
             </div>
-            <div className="orderstatus d-flex flex-column justify-content-center mt-3 ms-3">
+            <div className="orderstatus d-flex flex-column justify-content-center mt-3 ms-5">
               <label style={{ fontSize: "18px" }}>Delivered</label>
               <div className="orderdisplay d-flex  align-items-center">
                 <input
                   type="Date"
                   className="form-control mb-2"
                   placeholder="Enter confirmation date"
-                  value={order.confirmeddate || ""}
-                  onChange={(e) => setOrderdate(e.target.value)}
+                  value={delivered}
+                  onChange={(e) => setDelivered(e.target.value)}
                 />
                 <button
-                  className="btn btn-success w-25 mb-2 ms-1 " //   onClick={() => handleConfirmationDateUpdate(order._id)}
+                  className="btn btn-success w-25 mb-2 ms-1 "   onClick={() => updateDelivered(order._id)}
                 >
                   <i class="fa-solid fa-right-to-bracket"></i>
                 </button>
               </div>
             </div>
-            <div className="orderstatus d-flex flex-column justify-content-center mt-3 ms-3">
-              <label style={{ fontSize: "18px" }}>Order Status</label>
-              <div className="orderdisplay d-flex  align-items-center">
-                <select
-                  className="form-select mb-2"
-                  value={order.status || "Pending"}
-                //   onChange={(e) =>handleStatusUpdate(order._id, e.target.value)}
-                >
-                  <option value="Pending">Pending</option>
-                  <option value="Completed">Completed</option>
-                </select>
-                <button
-                  className="btn btn-success w-25 mb-2 ms-1 " //   onClick={() => handleConfirmationDateUpdate(order._id)}
-                >
-                  <i class="fa-solid fa-right-to-bracket"></i>
-                </button>
-              </div>
-            </div>
+            
           </Col>
         </Row>
       </Container>

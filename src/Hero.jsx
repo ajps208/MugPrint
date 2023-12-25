@@ -12,9 +12,9 @@ function Hero() {
           <div class="row mt-5">
             <div class="col-lg-8">
               <h1>
-                Welcome to <span>mugHub</span>
+                Welcome to <span>WallArt</span>
               </h1>
-              <h2>Delivering great food for more than 18 years!</h2>
+              <h2>Transform your spaces with personalized printing, expressing your unique style.</h2>
 
               <div class="btns">
                 <a href="#gallery"class="btn-menu animated fadeInUp scrollto">

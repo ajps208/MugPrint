@@ -9,7 +9,7 @@ function Footer() {
             <div class="row">
               <div class="col-lg-3 col-md-6">
                 <div class="footer-info">
-                  <h3>Mughub</h3>
+                  <h3>WallArt</h3>
                   <p>
                     A108 Adam Street <br />
                     NY 535022, USA
@@ -68,23 +68,23 @@ function Footer() {
                 <ul>
                   <li>
                     <i class="bx bx-chevron-right"></i>{" "}
-                    <a href="#">Web Design</a>
+                    <a href="#">Personalized Printing</a>
                   </li>
                   <li>
                     <i class="bx bx-chevron-right"></i>{" "}
-                    <a href="#">Web Development</a>
+                    <a href="#">Custom Wall Murals</a>
                   </li>
                   <li>
                     <i class="bx bx-chevron-right"></i>{" "}
-                    <a href="#">Product Management</a>
+                    <a href="#">Decorative Door Panels</a>
                   </li>
                   <li>
                     <i class="bx bx-chevron-right"></i>{" "}
-                    <a href="#">Marketing</a>
+                    <a href="#">3D Stair and Stair Rail Glass Printing</a>
                   </li>
                   <li>
                     <i class="bx bx-chevron-right"></i>{" "}
-                    <a href="#">Graphic Design</a>
+                    <a href="#">Custom Glass Art Panels</a>
                   </li>
                 </ul>
               </div>
@@ -108,7 +108,7 @@ function Footer() {
           <div class="copyright">
             &copy; Copyright{" "}
             <strong>
-              <span>Mughub</span>
+              <span>WallArt</span>
             </strong>
             . All Rights Reserved
           </div>

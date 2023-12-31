@@ -62,11 +62,11 @@ function OrderView() {
             />
           </Col>
           <Col xs={4} sm={4} md={4} lg={4}>
-            <h4>Mug Detailes</h4>
-            <p>Mug Size: {order.size}</p>
-            <p>No.s of Mugs: {order.qty}</p>{" "}
+            <h4>WallArt Detailes</h4>
+            <p>WallArt Size: {order.size}</p>
+            <p>No.s of WallArts: {order.qty}</p>{" "}
             <p className="d-flex align-items-center">
-              Mug Color:{" "}
+              WallArt Thickness:{" "}
               <div
                 className="ms-2"
                 style={{
@@ -75,9 +75,9 @@ function OrderView() {
                   height: "15px",
                 }}
               ></div>
-              <span className="ms-1">{order.color}</span>
+              <span className="ms-1">{order.thickness}</span>
             </p>
-            <p>Mug Style: {order.style}</p>
+            <p>WallMount Type: {order.wallmount}</p>
           </Col>
         </Row>
         <Row className="bg-light text-dark rounded shadow-lg mt-3 d-flex justify-content-center align-items-center">
@@ -109,12 +109,12 @@ function OrderView() {
               <p style={{ fontSize: "14px" }}>{order.confirmeddate?orderdate:""}</p>
             </div>
             <div className="orderstatus d-flex flex-column justify-content-center  mt-3">
-              <p style={{ fontSize: "14px" }}>Mug Printed</p>
+              <p style={{ fontSize: "14px" }}>WallArt Printed</p>
               <div className="orderdisplay d-flex align-items-center">
                 <div
                   className=" mb-2"
                   style={{
-                    backgroundColor:order.mugprinted && !order.mugprinted.status ? "grey" : "green",
+                    backgroundColor:order.WallArtprinted && !order.WallArtprinted.status ? "grey" : "green",
                     width: "15px",
                     height: "15px",
                     borderRadius: "50%",
@@ -129,7 +129,7 @@ function OrderView() {
                   }}
                 ></div>
               </div>
-              <p style={{ fontSize: "14px" }}>{order.mugprinted?.date || "Not available"}</p>
+              <p style={{ fontSize: "14px" }}>{order.WallArtprinted?.date || "Not available"}</p>
             </div>
             <div className="orderstatus d-flex flex-column justify-content-center  mt-3">
               <p style={{ fontSize: "14px" }}>Out For Delivery</p>
@@ -137,7 +137,7 @@ function OrderView() {
                 <div
                   className="dot mb-2"
                   style={{
-                    backgroundColor: order.mugprinted && !order.outfordelivery.status ? "grey" : "green",
+                    backgroundColor: order.WallArtprinted && !order.outfordelivery.status ? "grey" : "green",
                     width: "15px",
                     height: "15px",
                     borderRadius: "50%",
@@ -160,7 +160,7 @@ function OrderView() {
                 <div
                   className=" mb-2"
                   style={{
-                    backgroundColor: order.mugprinted && !order.Delivered.status ? "grey" : "green",
+                    backgroundColor: order.WallArtprinted && !order.Delivered.status ? "grey" : "green",
                     width: "15px",
                     height: "15px",
                     borderRadius: "50%",

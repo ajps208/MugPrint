@@ -70,6 +70,7 @@ function CompletedOrders() {
                     <span className="text-success">Qty:</span> <br />
                     <span className="text-light mt-1">{item.qty}</span>
                   </Col>
+                  
                   <Col xs={4} md={1} lg={1}>
                     <span className="text-success">size:</span> <br />
                     <span className="text-light mt-1">{item.size}</span>

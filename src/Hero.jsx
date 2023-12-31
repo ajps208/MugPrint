@@ -1,9 +1,31 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 function Hero() {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const images = [
+    'url("/assets/img/lp-1.png") center',
+    'url("/assets/img/lp-2.png") center',
+    'url("/assets/img/lp-3.png") center',
+    'url("/assets/img/lp-4.png") center',
+    'url("/assets/img/lp-5.png") center',
+    'url("/assets/img/lp-6.png") center',
+    'url("/assets/img/lp-7.png") center',
+    'url("/assets/img/lp-12.png") center', // Add more image URLs as needed
+    // Add more image URLs as needed
+  ];
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 5000);
+
+    return () => clearInterval(intervalId); // Cleanup on component unmount
+
+  }, [images.length]);
+
   return (
     <>
-    <section id="hero" class="d-flex">
+    <section id="hero" class="d-flex" style={{background: images[currentImageIndex]}}>
         <div
           class="container position-relative text-center  text-lg-start"
           data-aos="zoom-in"
@@ -24,7 +46,7 @@ function Hero() {
                   href="#book-a-table"
                   class="btn-book animated fadeInUp scrollto"
                 >
-                  Print a Mug
+                 Order Your WallArt
                 </a>
               </div>
             </div>

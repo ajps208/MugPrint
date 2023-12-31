@@ -71,10 +71,14 @@ function PendingOrderView() {
                     <span className="text-light mt-1">{item.qty}</span>
                   </Col>
                   <Col xs={4} md={1} lg={1}>
+                    <span className="text-success">Thickness:</span> <br />
+                    <span className="text-light mt-1">{item.thickness}</span>
+                  </Col>
+                  <Col xs={4} md={1} lg={1}>
                     <span className="text-success">size:</span> <br />
                     <span className="text-light mt-1">{item.size}</span>
                   </Col>
-                  <Col xs={4} md={2} lg={2}>
+                  <Col xs={4} md={1} lg={1}>
                     <span className="text-success">Price:</span> <br />
                     <span className="text-light mt-1">{item.price} ₹</span>
                   </Col>
@@ -84,7 +88,7 @@ function PendingOrderView() {
                       {item.confirmeddate}
                     </span>
                   </Col>
-                  <Col xs={4} md={3} lg={3}>
+                  <Col xs={4} md={2} lg={2}>
                     <span className="text-success">Order deliverd:</span> <br />
                     <span className="text-light mt-1 text-uppercase">
                       {!item.Delivered.status ? "pending" : item.Delivered.date}

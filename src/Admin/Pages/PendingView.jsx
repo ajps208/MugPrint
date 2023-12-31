@@ -130,28 +130,28 @@ function OrderView() {
           </Col>
 
           <Col xs={6} sm={6} md={3} lg={3} className="ps-5">
-            <h4>Mug Detailes</h4>
-            <p>Mug Size: {order.size}</p>
-            <p>No.s of Mugs: {order.qty}</p>{" "}
+            <h4>WallArt Detailes</h4>
+            <p>WallArt Size: {order.size}</p>
+            <p>No.s of WallArt: {order.qty}</p>{" "}
             <p className="d-flex align-items-center">
-              Mug Color:{" "}
+             thickness:{" "}
               <div
-                className="ms-2"
+                className="ms-1"
                 style={{
                   backgroundColor: order.color,
                   width: "15px",
                   height: "15px",
                 }}
               ></div>
-              <span className="ms-1">{order.color}</span>
+              <span className="ms-1">{order.thickness}</span>
             </p>
-            <p>Mug Style: {order.style}</p>
+            <p>WallMount Type: {order.wallmount}</p>
           </Col>
           <Col xs={6} sm={6} md={3} lg={3}>
             <h4>Delivery Detailes</h4>
             <p>Order Confirmed: {order.confirmeddate ? orderdate : ""}</p>
             <p>
-              Mug Printed Date:{" "}
+            WallArt Printed Date:{" "}
               {order.mugprinted && order.mugprinted.status
                 ? order.mugprinted.date || "Not available"
                 : "Not available"}
@@ -188,7 +188,7 @@ function OrderView() {
             className="column d-flex flex-row"
           >
             <div className="orderstatus d-flex flex-column justify-content-center mt-3 ms-3">
-              <label style={{ fontSize: "18px" }}>Mug Printed</label>
+              <label style={{ fontSize: "18px" }}>WallArt Printed</label>
               <div className="orderdisplay d-flex  align-items-center">
                 <input
                   type="date"
